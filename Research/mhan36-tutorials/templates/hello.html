@@ -1,0 +1,15 @@
+{% extends 'base.html' %} 
+
+{% block content %}
+
+<h1> hello HEhe</h1>
+<span> Request Method - {{request_method}}</span>
+
+<form method = "POST" action = "/">
+    <input type = "text" palceholder = "first name" name = 'first_name'>
+    <input type = "text" palceholder = "last name" name = 'last_name'>
+    <input type = "submit">
+</form>
+
+{% endblock content %}
+
