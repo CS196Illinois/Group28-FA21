@@ -8,7 +8,10 @@ import WelcomeBar from './Components/WelcomeBar';
 
 function App() {
   return (
-    <WelcomeBar/>
+    <div className="App">
+      <WelcomeBar/>
+      <PlayListSubmission/>
+    </div>
   );
 }
 
