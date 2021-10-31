@@ -12,16 +12,20 @@ class SongData {
 
 class SongBox extends React.Component {
   state = {
-    songs: [new SongData("google.com", "Hello", "Artist", "50")]
+    songs: [new SongData("google.com", "Hello", "Artist", "50")],
   };
   render() {
-    var songList  = this.state.songs.map((data) => {
-      <Song url={data.url} title={data.title} artist={data.artist} score={data.score}/>
-    })
     if (this.props.appear) {
       return (
         <div className="SongBox">
-          {songList}
+          {this.state.songs.map((data) => 
+            <Song
+              url={data.url}
+              title={data.title}
+              artist={data.artist}
+              score={data.score}
+            />
+          )};
         </div>
       );
     } else {
