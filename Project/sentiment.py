@@ -22,5 +22,3 @@ def getPositivityRatio(link):
             countnegative += 1
 
     return countpositive / (countpositive + countnegative)
-
-print(getPositivityRatio("https://www.azlyrics.com/lyrics/pharrellwilliams/happy.html"))
