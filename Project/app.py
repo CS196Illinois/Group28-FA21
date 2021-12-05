@@ -36,7 +36,7 @@ def toLinks(arraySongs, arrayArtists):
     l = len(arraySongs)
     linkArr = [0]*l
     for i in range(l):
-        linkArr[i] = "https://www.azlyrics.com/lyrics/" + arrayArtists[i] + "/" + arraySongs[i] + ".html"
+        linkArr[i] = "https://www.azlyrics.com/lyrics/" + arrayArtists[i].replace(" ", "") + "/" + arraySongs[i].replace(" ", "") + ".html"
     return linkArr
 
 def sentimentOfPlaylist(arrayOfLinks):
@@ -53,8 +53,6 @@ def basic():
 def index(songs):
     arrSongs = songs.split(",")
     arrArtists = toArtists(arrSongs)
-    print(arrSongs)
-    print(arrArtists)
     sentiment = sentimentOfPlaylist(toLinks(arrSongs, arrArtists))
     return render_template('test.html', s = sentiment)
 
