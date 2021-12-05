@@ -1,3 +1,4 @@
+from requests.api import get
 from transformers import pipeline
 import requests
 
