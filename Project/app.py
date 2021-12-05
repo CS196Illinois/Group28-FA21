@@ -1,7 +1,10 @@
 from transformers import pipeline
-from flask import Flask, render_template, redirect
+from flask import Flask, render_template
 import requests
+from flask_sqlalchemy import SQLAlchemy
 from sentiment import getPositivityRatio
+
+app = Flask(__name__)
 
 def toLinks(arraySongs, arrayArtists):
     len = len(arraySongs)
@@ -20,9 +23,12 @@ def sentimentOFPlaylist(arrayOfLinks):
 def basic():
     return render_template('index.html', songToUse = "https://www.azlyrics.com/lyrics/pharrellwilliams/happy.html")
 
-@app.route('/<string:link>', methods=['GET', 'POST'])
-    def index(link):
-        return render_template('index.html', songToUse = link)
+@app.route('/<string:songs>', methods=['GET', 'POST'])
+    def index(songs):
+        arrSongs = songs.split[","]
+        arrArtists = toArtists(arrSongs)
+        sentiment = toLinks(arrSongs, arrArtists)
+        return render_template('test.html', s = sentiment)
 
 if __name__ == '__main__':
     app.run(debug=True)
