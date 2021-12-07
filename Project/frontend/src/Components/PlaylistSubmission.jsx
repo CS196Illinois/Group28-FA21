@@ -28,12 +28,14 @@ class PlaylistSumbission extends React.Component {
   click() {
     this.setState({ clicked: true });
     this.state.link = document.getElementById("input").value;
-    console.log(this.state.link);
-    const requestOptions = {
+    const response = fetch("/", {
       method: 'POST', 
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({link : this.state.link})
-    };
+    });
+    if (response.ok) {
+      console.log("it worked");
+    }
 
   }
 }
